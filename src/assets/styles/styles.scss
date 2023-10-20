@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;800&display=swap');
 @import "./colors.scss";
 @import "./reset.scss";
 
@@ -29,23 +30,24 @@
 	}
 }
 
-.container {
-}
 .header {
-	height: 60px;
+	height: 90px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	text-transform: uppercase;
-	&-left__section{
+	&-left__section {
 		display: flex;
 		align-items: center;
 		gap: 100px;
 	}
-	&-logo{
-		font-weight: 600;
-		font-size: 20px;
+	&-logo {
+		width: 20%;
 		cursor: pointer;
+
+		img {
+			width: 100%;
+		}
 	}
 	ul {
 		display: flex;
@@ -55,30 +57,24 @@
 	}
 }
 
-
 .header-menu {
-	&__list {
-		
-	}
-
 	&__link {
 		cursor: pointer;
 		transition: color 0.2s ease-in;
 		position: relative;
 		line-height: 2em;
-		&:hover{
+		&:hover {
 			color: $hover-color;
-			&::after{
+			&::after {
 				width: 100%;
 				transition: width 0.4s ease;
-				
 			}
 		}
-		&:after{
+		&:after {
 			transition: width 0.4s ease;
-			content: '';
+			content: "";
 			position: absolute;
-			height: 2px;
+			height: 1px;
 			background: $hover-color;
 			left: 0;
 			bottom: -10px;
@@ -88,17 +84,17 @@
 	&__langs {
 		position: absolute;
 		padding: 20px;
-		background-color:transparentize($color: $main, $amount: 0.1) ;
+		background-color: transparentize($color: $main, $amount: 0.1);
 		border-radius: 10px;
 		visibility: hidden;
 		opacity: 0;
 		transition: opacity 0.3s ease;
 	}
-	
+
 	.lang {
 		position: relative;
-	
-		&::after{
+
+		&::after {
 			height: 0;
 			width: 0;
 		}
@@ -117,8 +113,8 @@
 		cursor: pointer;
 		color: $white;
 		transition: color 0.2s ease;
-		
-		&:hover{
+
+		&:hover {
 			color: $hover-color;
 		}
 		&:last-child {
@@ -126,42 +122,40 @@
 		}
 	}
 }
-.link {
-	
-}
 
 .current-lang {
 	display: flex;
 	align-items: center;
 	gap: 5px;
 	cursor: pointer;
-	transition: color .2s ease;
-	&:hover{
+	transition: color 0.2s ease;
+	&:hover {
 		color: $hover-color;
-		.current-lang__icon{
+		.current-lang__icon {
 			transform: rotate(180deg);
 		}
-		
 	}
 	&__icon {
 		width: 10px;
-		transition: transform .3s ease;
+		transition: transform 0.3s ease;
 	}
 }
 .header-timer {
-	
 	display: flex;
 	align-items: center;
 	gap: 20px;
 	position: relative;
+	color: transparentize($color: $white, $amount: 0.4);
+	span{
+		color: transparentize($color: $hover-color, $amount: 0.4);;
+	}
 	&__values {
 		display: flex;
 		align-items: end;
-		gap: 10px;
+		gap: 20px;
 	}
 
 	&__item {
-		color:transparentize($color: $white, $amount: 0.4) ;
 		position: relative;
 	}
 
@@ -174,14 +168,102 @@
 		position: absolute;
 		left: 50%;
 		transform: translate(-50%);
- font-weight: 200;
+		font-weight: 200;
 	}
 }
 .description {
-}
-.description-title {
-}
-.description-subtitle {
-}
-.description-button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	img {
+		animation: logo 3s infinite;
+		width: 60%;
+	}
+	@keyframes logo {
+		50% {
+			transform: translateY(-5%);
+		}
+		100% {
+			transform: translate(0%);
+		}
+	}
+	&-subtitle {
+		font-family: 'Cinzel', serif;
+		font-size: 25px;
+		font-weight: 100;
+		text-transform: uppercase;
+		margin-bottom: 50px;
+		position: relative;
+		background-image: linear-gradient(
+			90deg,
+			transparent,
+			rgba(0, 0, 0, 0.35) 10%,
+			rgba(0, 0, 0, 0.35) 90%,
+			transparent
+		);
+		color: #ffffff;
+		padding: 20px;
+		&::after,
+		&::before {
+			content: "";
+			position: absolute;
+			height: 1px;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-image: linear-gradient(90deg, rgba(81, 162, 191, 0), $hover-color, rgba(191, 162, 81, 0));
+		}
+	}
+	&-button {
+		font-family: 'Cinzel', serif;
+		overflow: hidden;
+		position: relative;
+		background:transparentize($color: $main, $amount: 0.2) ;
+		text-transform: uppercase;
+		font-size: 30px;
+		padding: 10px 20px;
+		border: 1px solid $hover-color;
+		text-shadow: 1px 1px 1px #e67300;
+		font-weight: 100;
+		border-radius: 10px;
+		color: $hover-color;
+		cursor: pointer;
+		transition: transform 0.3s ease;
+		&::after{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: -200px;
+			width: 60px;
+			height: 100px;
+			background-color: $hover-color;
+			filter: blur(30px);
+			transform: skewX(30deg) translateZ(0);
+			transition: 1s;
+			animation-name: slideme;
+			animation-duration: 3s;
+			animation-delay: 0.05s;
+			animation-timing-function: ease;
+			animation-iteration-count: infinite;
+		}
+		&:hover{
+			transform: scale(1.2);
+		}
+		@keyframes slideme {
+			0% {
+				 left: -30px;
+				 margin-left: 0px;
+			}
+			30% {
+				 left: 110%;
+				 margin-left: 80px;
+			}
+			100% {
+				 left: 110%;
+				 margin-left: 80px;
+			}
+	  }
+	}
 }
