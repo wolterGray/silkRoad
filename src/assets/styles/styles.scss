@@ -1,3 +1,187 @@
-body{
-	background-color: #000;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;900&display=swap");
+@import "./colors.scss";
+@import "./reset.scss";
+
+.section {
+	&-main {
+		position: relative;
+		min-height: 100vh;
+		background: url("../images/background.jpg") no-repeat top/cover;
+		z-index: 1;
+		&:after,
+		:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+		}
+		&::after {
+			background: url("../images/snow.gif") no-repeat right/cover;
+			transform: rotate(180deg);
+			opacity: 0.2;
+		}
+		&::before {
+			background: url("../images/background.jpg") no-repeat right/cover;
+		}
+	}
+}
+
+.container {
+}
+.header {
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-transform: uppercase;
+	&-left__section{
+		display: flex;
+		align-items: center;
+		gap: 100px;
+	}
+	&-logo{
+		font-weight: 600;
+		font-size: 20px;
+		cursor: pointer;
+	}
+	ul {
+		display: flex;
+		align-items: center;
+		gap: 50px;
+		letter-spacing: 1.2px;
+	}
+}
+
+
+.header-menu {
+	&__list {
+		
+	}
+
+	&__link {
+		cursor: pointer;
+		transition: color 0.2s ease-in;
+		position: relative;
+		line-height: 2em;
+		&:hover{
+			color: $hover-color;
+			&::after{
+				width: 100%;
+				transition: width 0.4s ease;
+				
+			}
+		}
+		&:after{
+			transition: width 0.4s ease;
+			content: '';
+			position: absolute;
+			height: 2px;
+			background: $hover-color;
+			left: 0;
+			bottom: -10px;
+			width: 0%;
+		}
+	}
+	&__langs {
+		position: absolute;
+		padding: 20px;
+		background-color:transparentize($color: $main, $amount: 0.1) ;
+		border-radius: 10px;
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+	
+	.lang {
+		position: relative;
+	
+		&::after{
+			height: 0;
+			width: 0;
+		}
+		&:hover {
+			.header-menu__langs {
+				transition: opacity 0.3s ease;
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+
+	&__lang-item {
+		margin-bottom: 10px;
+		font-size: 14px;
+		cursor: pointer;
+		color: $white;
+		transition: color 0.2s ease;
+		
+		&:hover{
+			color: $hover-color;
+		}
+		&:last-child {
+			margin: 0;
+		}
+	}
+}
+.link {
+	
+}
+
+.current-lang {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	cursor: pointer;
+	transition: color .2s ease;
+	&:hover{
+		color: $hover-color;
+		.current-lang__icon{
+			transform: rotate(180deg);
+		}
+		
+	}
+	&__icon {
+		width: 10px;
+		transition: transform .3s ease;
+	}
+}
+.header-timer {
+	
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	position: relative;
+	&__values {
+		display: flex;
+		align-items: end;
+		gap: 10px;
+	}
+
+	&__item {
+		color:transparentize($color: $white, $amount: 0.4) ;
+		position: relative;
+	}
+
+	&__item-value {
+		font-size: 40px;
+		font-weight: 700;
+	}
+
+	&__item-info {
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%);
+ font-weight: 200;
+	}
+}
+.description {
+}
+.description-title {
+}
+.description-subtitle {
+}
+.description-button {
 }
