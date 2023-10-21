@@ -192,8 +192,8 @@
 		font-size: 25px;
 		font-weight: 100;
 		text-transform: uppercase;
-		margin-bottom: 20px;
 		position: relative;
+		margin-bottom: 20px;
 		background-image: linear-gradient(
 			90deg,
 			transparent,
@@ -256,7 +256,6 @@
 		}
 	}
 }
-  
 
 //PVP
 .section {
@@ -276,11 +275,12 @@
 		z-index: -1;
 	}
 	&::after {
-		background: url("../images/sectionPvp/circleMove.svg") no-repeat center/auto, url('../images/sectionPvp/backgroundPvp.webp') no-repeat center/cover,#1b1b1a;
-		
+		background:
+			url("../images/sectionPvp/circleMove.svg") no-repeat center/auto,
+			url("../images/sectionPvp/backgroundPvp.webp") no-repeat center/cover,
+			#1b1b1a;
 	}
 	&::before {
-		
 	}
 }
 .pvp-text {
@@ -293,22 +293,20 @@
 	transform: translate(-50%, -50%);
 	z-index: 1;
 }
-.pvp-title {
-	margin-bottom: 20px;
-}
+
 .pvp-description {
 	font-size: 20px;
 }
 // CHARACTERS
 .section {
-	
 }
 .section-characters {
 	height: 100vh;
 	position: relative;
-	
-	&:after, &:before{
-		content: '';
+
+	&:after,
+	&:before {
+		content: "";
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -316,46 +314,41 @@
 		width: 100%;
 		z-index: -1;
 	}
-	&::before{
-		background:#1b1b1ad6;
+	&::before {
+		background: #1b1b1ad6;
 	}
 }
-.icon{
-fill: $hover-color;
-width: 35px;
-height: 35px;
-margin-bottom: 20px;
-
+.icon {
+	fill: $hover-color;
+	width: 35px;
+	height: 35px;
+	margin-bottom: 20px;
 }
-.character{
+.character {
 	
-	&-title{
-		margin-bottom: 20px;
-	}
-	&-class__title{
+	&-class__title {
 		margin-bottom: 20px;
 		position: relative;
 	}
-	
+
 	&-row {
 		display: grid;
 		cursor: pointer;
-		grid-template-columns: repeat(6,1fr);
+		grid-template-columns: repeat(6, 1fr);
 		gap: 20px;
 		height: 50vw;
-		
 	}
 	&-class {
 		// display: none;
-		border: 1px solid transparentize($color: $hover-color, $amount: 0.7) ;
+		border: 1px solid transparentize($color: $hover-color, $amount: 0.7);
 		border-radius: 10px;
 		overflow: hidden;
 		text-align: center;
 		padding: 20px;
 		position: relative;
-		transition: transform .3s ease;
+		transition: transform 0.3s ease;
 		&::before {
-			transition: all .8s ease;
+			transition: all 0.8s ease;
 			content: "";
 			position: absolute;
 			top: 0;
@@ -364,59 +357,94 @@ margin-bottom: 20px;
 			width: 100%;
 			height: 100%;
 		}
-			&__title {
-				font-size: 25px;
-				font-weight: 100;
+		&__title {
+			font-size: 25px;
+			font-weight: 100;
+		}
+
+		&__description {
+			color: $hover-color;
+			position: relative;
+			opacity: 0;
+			transition: all 0.4s ease;
+		}
+		&:hover {
+			transform: translateY(-2%);
+			transition: transform 0.3s ease;
+			.character-class__description {
+				transition: all 0.8s ease;
+				opacity: 1;
+				transition: all 0.8s ease;
 			}
-	
-			&__description {
-				color: $hover-color;
-				position: relative;
-				opacity: 0;
-				transition: all .4s ease;
+			&::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.672);
+				transition: all 0.3s ease;
 			}
-			&:hover{
-				transform: translateY(-2%);
-				transition: transform .3s ease;
-				.character-class__description{
-					transition: all .8s ease;
-					opacity: 1;
-					transition: all .8s ease;
-				}
-				&::before{
-					content: '';
-					position: absolute;
-					width: 100%;
-					height: 100%;
-					background-color: rgba(0, 0, 0, 0.672);
-					transition: all .3s ease;
-				}
-			}
-			
+		}
 	}
-	
 }
-
-
-
 
 .warrior {
-	background: url('../images/sectionClass/warrior.jpg') center/cover;
+	background: url("../images/sectionClass/warrior.jpg") center/cover;
 }
 .wizard {
-	background: url('../images/sectionClass/wizard.jpeg') -250px center/cover;
+	background: url("../images/sectionClass/wizard.jpeg") -250px center/cover;
 }
 .robber {
-	background: url('../images/sectionClass/robber.jpeg')  left/cover
+	background: url("../images/sectionClass/robber.jpeg") left/cover;
 }
 .bard {
-	background: url('../images/sectionClass/bard.jpeg')  300px center/cover;
+	background: url("../images/sectionClass/bard.jpeg") 300px center/cover;
 }
 .priest {
-	background: url('../images/sectionClass/priest.jpeg')  center/cover;
+	background: url("../images/sectionClass/priest.jpeg") center/cover;
 }
-.sorcerer{
+.sorcerer {
+	background: url("../images/sectionClass/sorcerer.jpg") center/cover;
+}
+
+//news
+.section-news{
+	background-color: #1b1b1a;
+	height: max-content;
+}
+.news {
+	&-title {
+		
+	}
+	&-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+		row-gap: 50px;
+		column-gap: 20px;
+	}
+
+}
+.card {
 	
-	background: url('../images/sectionClass/sorcerer.jpg') center/cover;
-	
+	&__item {
+		display: flex;
+		cursor: pointer;
+		gap: 10px;
+		height: 200px;
+	overflow: hidden;
+		
+		img{
+			width: 50%;
+			height: 100%;
+		   object-fit: cover;
+		}
+	}
+	&-title {
+		font-size: 20px;
+		margin: 0;
+	}
+	&-description {
+		height: 200px;
+		overflow: scroll;
+	}
 }
