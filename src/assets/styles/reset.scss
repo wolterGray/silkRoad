@@ -8,6 +8,10 @@ body {
 	padding: 0;
 	margin: 0;
 	overflow-x: hidden;
+	
+}
+body,html{
+	height: 100%;
 }
 h1,h2,h3,h4,h5,h6,p{
 	padding: 0;
@@ -43,4 +47,9 @@ ul,li{
 	width:90%;
 	margin: 0 auto;
 	
+}
+.title{
+	font-size: 40px;
+	font-weight: 700;
+	color: $hover-color;
 }
