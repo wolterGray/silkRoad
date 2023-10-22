@@ -1,4 +1,4 @@
-@import "./colors.scss";
+@import "./variables.scss";
 
 body {
 	background-color: $main;
@@ -51,6 +51,6 @@ ul,li{
 .title{
 	font-size: 40px;
 	font-weight: 700;
-	color: $hover-color;
-	margin-bottom: 20px;
+	color: $second-color;
+	margin-bottom: 10px;
 }
